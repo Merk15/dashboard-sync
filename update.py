@@ -149,8 +149,7 @@ if values:
         chunk = values[i:i+batch_size]
         start_row = 3 + i
         end_col_letter = colnum_string(len(df.columns))
-        end_row = min(start_row + len(chunk) - 1, 39002)
-        chunk = chunk[:end_row - start_row + 1]
+        end_row = start_row + len(chunk) - 1
         data_range = f"{SHEET_NAME}!A{start_row}:{end_col_letter}{end_row}"
         sheet.values().update(
             spreadsheetId=SPREADSHEET_ID,
